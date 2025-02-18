@@ -3,7 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 export default function Home() {
-  return (
+ return (
     <Layout title="Home">
       <section className="text-center mb-16">
         <h1 className="text-5xl font-bold mb-6">Welcome to TechCorp</h1>
@@ -139,4 +139,3 @@ export default function Home() {
     </Layout>
   )
 }
-
