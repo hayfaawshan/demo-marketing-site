@@ -1,10 +1,10 @@
-import Layout from "@/components/Layout"
+import ProductLayout from "@/app/(product)/_layout"
 import Image from "next/image"
 import Link from "next/link"
 
 const products = [
  {
-    id: 1,
+ id: 1,
     name: "TechOS",
     description: "Next-generation operating system designed for maximum efficiency and user-friendliness.",
     features: [
@@ -61,7 +61,7 @@ const products = [
 
 export default function Products() {
   return (
-    <Layout title="Products">
+    <ProductLayout title="Products">
       <h1 className="text-4xl font-bold mb-6">Our Products</h1>
       <p className="text-xl mb-8">
         Discover our cutting-edge solutions designed to revolutionize your digital experience.
@@ -175,6 +175,6 @@ export default function Products() {
           </div>
         </div>
       </section>
-    </Layout>
+    </ProductLayout>
   )
 }
