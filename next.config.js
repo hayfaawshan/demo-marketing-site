@@ -1,5 +1,4 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+export default {
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
   images: { unoptimized: true },
@@ -9,5 +8,3 @@ const nextConfig = {
     parallelServerCompiles: true,
   },
 };
-
-export default nextConfig;

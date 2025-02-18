@@ -2,6 +2,7 @@
   "name": "my-v0-project",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -64,13 +65,13 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@types/jest": "^29.5.14",
-    "@types/node": "^22",
-    "@types/react": "^18",
+    "@types/node": "^22.13.4",
+    "@types/react": "^18.3.18",
     "@types/react-dom": "^18",
     "@types/react-router-dom": "^5.3.3",
     "@types/testing-library__react": "^10.0.1",
     "postcss": "^8",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5"
+    "typescript": "^5.7.3"
   }
 }
