@@ -1,5 +1,5 @@
 {
-	"name": "acmeuserproject",
+"name": "acmeuserproject",
 	"private": true,
 	"version": "0.1.0",
 	"type": "template",
@@ -51,7 +51,6 @@
 		"eslint-config-next": "latest"
 	},
 	"engines": {
-		"node": ">=12.x.x",
-		"npm": ">=6.0.0"
+		"node": ">=18.17"
 	}
 }
