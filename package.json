@@ -1,7 +1,7 @@
 {
  "name": "marketplace-website",
  "version": "0.1.0",
-  "scripts": {
+ "scripts": {
     "dev": "next dev",
     "build": "next build",
     "preview": "next build && next export",
@@ -19,12 +19,11 @@
     "@useweb/hooks": "0.1.40-1",
     "@useweb/lib": "0.3.11",
     "lodash": "^4.17.21",
-    "next": "13.4.13",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "next": "13.4.4",
+    "react": "18.4.0",
+    "react-dom": "18.4.0"
   },
   "devDependencies": {
-    "@useweb/config.args": "0.0.1",
     "@useweb/tsconfig": "0.1.8",
     "eslint": "8.41.0",
     "eslint-config-eslint": "8.40.0",
