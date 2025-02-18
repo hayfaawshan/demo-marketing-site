@@ -1,5 +1,5 @@
 {
-  "name": "acme-design-system",
+ "name": "acme-design-system",
   "private": true,
   "sideEffects": [
     "styles/globals.css"
