@@ -1,30 +1,16 @@
 {
-  "name": "my-next-app",
-  "dependencies": {
-    "@next/font": "13.0.2",
-    "autoprefixer": "^12.0.0",
-    "next": "latest",
-    "postcss": "^8.0.0",
-    "postcss-preset-env": "^6.7.0",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
-    "styled-components": "^5.3.0",
-    "tailwindcss": "^3.0.24"
-  },
-  "devDependencies": {
-    "@babel/plugin-transform-runtime": "^7.13.15",
-    "@babel/preset-env": "^7.13.15",
-    "@babel/preset-react": "^7.13.13",
-    "@next/bundle-analyzer": "^10.1.3",
-    "@svgr/cli": "^5.5.0",
-    "@svgr/rollup": "^5.5.0"
-  },
-  "scripts": {
-    "build": "next build",
-    "dev": "next dev",
-    "start": "next start",
-    "lint": "next lint",
-    "test": "jest"
-  },
-  "type": "module"
+ "name": "my-next-app",
+ "dependencies": {
+ "next": "12.1.6",
+ "react": "18.2.0",
+ "react-dom": "18.2.0",
+ "styled-components": "^5.3.0",
+ "tailwindcss": "^3.0.24"
+},
+"scripts": {
+ "build": "next build",
+"dev": "next dev",
+"start": "next start",
+"lint": "next lint"
+ }
 }
