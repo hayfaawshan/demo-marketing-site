@@ -1,6 +1,7 @@
 import type React from "react"
 import Head from "next/head"
 import Link from "next/link"
+import { useRouter } from "next/router"
 
 type LayoutProps = {
   children: React.ReactNode
@@ -8,6 +9,7 @@ type LayoutProps = {
 }
 
 export default function Layout({ children, title }: LayoutProps) {
+  const router = useRouter()
   return (
     <div className="min-h-screen flex flex-col">
       <Head>
@@ -23,22 +25,46 @@ export default function Layout({ children, title }: LayoutProps) {
           </Link>
           <ul className="flex space-x-4">
             <li>
-              <Link href="/" className="hover:underline">
+              <Link
+                href="/"
+                className={`hover:underline ${
+                  router.pathname === "/" ? "font-bold text-blue-800" : ""
+                }`}
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:underline">
+              <Link
+                href="/about"
+                className={`hover:underline ${
+                  router.pathname === "/about" ? "font-bold text-blue-800" : ""
+                }`}
+              >
                 About
               </Link>
             </li>
             <li>
-              <Link href="/products" className="hover:underline">
+              <Link
+                href="/products"
+                className={`hover:underline ${
+                  router.pathname === "/products"
+                    ? "font-bold text-blue-800"
+                    : ""
+                }`}
+              >
                 Products
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:underline">
+              <Link
+                href="/contact"
+                className={`hover:underline ${
+                  router.pathname === "/contact"
+                    ? "font-bold text-blue-800"
+                    : ""
+                }`}
+              >
                 Contact
               </Link>
             </li>
@@ -54,4 +80,3 @@ export default function Layout({ children, title }: LayoutProps) {
     </div>
   )
 }
-
