@@ -1,10 +1,28 @@
 import type React from "react"
 import Head from "next/head"
 import Link from "next/link"
+import { useRouter } from "next/router"
 
 type LayoutProps = {
   children: React.ReactNode
   title: string
+}
+
+type NavLinkProps = {
+  href: string
+  children: React.ReactNode
+}
+
+const NavLink: React.FC<NavLinkProps> = ({ href, children }) => {
+  const { pathname } = useRouter()
+  return (
+    <Link
+      href={href}
+      className={`hover:text-orange-300 ${pathname === href ? "font-bold" : ""}`}
+    >
+      {children}
+    </Link>
+  )
 }
 
 export default function Layout({ children, title }: LayoutProps) {
@@ -22,26 +40,10 @@ export default function Layout({ children, title }: LayoutProps) {
             TechCorp
           </Link>
           <ul className="flex space-x-4">
-            <li>
-              <Link href="/" className="hover:underline">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="hover:underline">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/products" className="hover:underline">
-                Products
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:underline">
-                Contact
-              </Link>
-            </li>
+            <NavLink href="/">Home</NavLink>
+            <NavLink href="/about">About</NavLink>
+            <NavLink href="/products">Products</NavLink>
+            <NavLink href="/contact">Contact</NavLink>
           </ul>
         </nav>
       </header>
@@ -54,4 +56,3 @@ export default function Layout({ children, title }: LayoutProps) {
     </div>
   )
 }
-
