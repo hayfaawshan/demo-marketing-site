@@ -3,7 +3,7 @@ import Head from "next/head"
 import Link from "next/link"
 
 type LayoutProps = {
-  children: React.ReactNode
+ children: React.ReactNode
   title: string
 }
 
@@ -38,6 +38,11 @@ export default function Layout({ children, title }: LayoutProps) {
               </Link>
             </li>
             <li>
+              <Link href="/careers" className="hover:underline">
+                Careers
+              </Link>
+            </li>
+            <li>
               <Link href="/contact" className="hover:underline">
                 Contact
               </Link>
@@ -54,4 +59,3 @@ export default function Layout({ children, title }: LayoutProps) {
     </div>
   )
 }
-
