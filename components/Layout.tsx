@@ -1,13 +1,22 @@
 import type React from "react"
 import Head from "next/head"
 import Link from "next/link"
+import { useRouter } from "next/router"
 
 type LayoutProps = {
-  children: React.ReactNode
+ children: React.ReactNode
   title: string
 }
 
 export default function Layout({ children, title }: LayoutProps) {
+  const router = useRouter()
+  const { pathname } = router
+
+  const getLinkClass = (href: string) => {
+    const isActive = pathname === href
+    return isActive ? "font-bold text-blue-400" : "text-gray-300 hover:underline"
+  }
+
   return (
     <div className="min-h-screen flex flex-col">
       <Head>
@@ -23,22 +32,22 @@ export default function Layout({ children, title }: LayoutProps) {
           </Link>
           <ul className="flex space-x-4">
             <li>
-              <Link href="/" className="hover:underline">
+              <Link href="/" className={getLinkClass("/")}>
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:underline">
+              <Link href="/about" className={getLinkClass("/about")}>
                 About
               </Link>
             </li>
             <li>
-              <Link href="/products" className="hover:underline">
+              <Link href="/products" className={getLinkClass("/products")}>
                 Products
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:underline">
+              <Link href="/contact" className={getLinkClass("/contact")}>
                 Contact
               </Link>
             </li>
@@ -54,4 +63,3 @@ export default function Layout({ children, title }: LayoutProps) {
     </div>
   )
 }
-

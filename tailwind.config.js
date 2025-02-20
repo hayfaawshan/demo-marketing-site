@@ -1,6 +1,6 @@
 module.exports = {
-  darkMode: ["class"],
-  content: [
+ darkMode: ["class"],
+ content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "*.{js,ts,jsx,tsx,mdx}",
@@ -43,6 +43,12 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        gray: {
+          300: "#a8a8a8",
+        },
+        blue: {
+          400: "#4f90ff",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -53,4 +59,3 @@ module.exports = {
   },
   plugins: [require("tailwindcss-animate")],
 }
-
