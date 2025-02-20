@@ -1,4 +1,7 @@
+"use client"
+
 import * as React from "react"
+import { usePathname } from "next/navigation"
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu"
 import { cva } from "class-variance-authority"
 import { ChevronDown } from "lucide-react"
@@ -6,7 +9,7 @@ import { ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const NavigationMenu = React.forwardRef<
-  React.ElementRef<typeof NavigationMenuPrimitive.Root>,
+ React.ElementRef<typeof NavigationMenuPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root>
 >(({ className, children, ...props }, ref) => (
   <NavigationMenuPrimitive.Root
@@ -115,6 +118,42 @@ const NavigationMenuIndicator = React.forwardRef<
 NavigationMenuIndicator.displayName =
   NavigationMenuPrimitive.Indicator.displayName
 
+const NavigationMenuItemLink = ({
+  href,
+  title,
+}: {
+  href: string
+  title: string
+}) => {
+  const pathname = usePathname()
+
+  const isActive = React.useCallback(
+    (path: string) => pathname?.startsWith(path),
+    [pathname]
+  )
+
+  return (
+    <NavigationMenuItem key={href}>
+      <NavigationMenuLink
+        href={href}
+        className="text-xs sm:text-sm"
+        asChild
+        active={isActive(href)}
+      >
+        <a
+          className={cn(
+            "text-xs sm:text-sm font-normal text-muted-foreground",
+            "transition-all duration-150 ease-in-out",
+            isActive(href) && "font-bold"
+          )}
+        >
+          {title}
+        </a>
+      </NavigationMenuLink>
+    </NavigationMenuItem>
+  )
+}
+
 export {
   navigationMenuTriggerStyle,
   NavigationMenu,
@@ -125,4 +164,5 @@ export {
   NavigationMenuLink,
   NavigationMenuIndicator,
   NavigationMenuViewport,
+  NavigationMenuItemLink,
 }
