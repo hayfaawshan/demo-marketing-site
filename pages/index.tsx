@@ -3,23 +3,25 @@ import Image from "next/image"
 import Link from "next/link"
 
 export default function Home() {
-  return (
+ return (
     <Layout title="Home">
-      <section className="text-center mb-16">
-        <h1 className="text-5xl font-bold mb-6">Welcome to TechCorp</h1>
-        <p className="text-xl mb-8 max-w-2xl mx-auto">
-          We're revolutionizing the tech industry with our innovative solutions. Empowering businesses and individuals
-          to achieve more through cutting-edge technology.
-        </p>
-        <Link
-          href="/products"
-          className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors"
-        >
-          Explore Our Products
-        </Link>
+      <section className="bg-gray-100 py-16">
+        <div className="text-center mb-16">
+          <h1 className="text-5xl font-bold mb-6">Welcome to TechCorp</h1>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            We're revolutionizing the tech industry with our innovative solutions. Empowering businesses and individuals
+            to achieve more through cutting-edge technology.
+          </p>
+          <Link
+            href="/products"
+            className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors"
+          >
+            Explore Our Products
+          </Link>
+        </div>
       </section>
 
-      <section className="mb-16">
+      <section className="bg-gray-100 py-16">
         <h2 className="text-3xl font-bold mb-6 text-center">Why Choose TechCorp?</h2>
         <div className="grid md:grid-cols-3 gap-8">
           <div className="text-center">
@@ -89,7 +91,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mb-16">
+      <section className="bg-gray-100 py-16">
         <h2 className="text-3xl font-bold mb-6 text-center">Featured Product</h2>
         <div className="bg-gray-100 rounded-lg p-8 flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-6 md:mb-0">
@@ -103,7 +105,7 @@ export default function Home() {
           </div>
           <div className="md:w-1/2 md:pl-8">
             <h3 className="text-2xl font-semibold mb-4">TechOS: The Future of Computing</h3>
-            <p className="mb-4">
+            <p className="mb-4 text-black">
               Experience unparalleled performance and security with our flagship operating system. TechOS combines
               cutting-edge AI technology with an intuitive user interface to revolutionize your digital experience.
             </p>
@@ -117,7 +119,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section>
+      <section className="bg-gray-100 py-16">
         <h2 className="text-3xl font-bold mb-6 text-center">What Our Clients Say</h2>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-white p-6 rounded-lg shadow-md">
@@ -139,4 +141,3 @@ export default function Home() {
     </Layout>
   )
 }
-
