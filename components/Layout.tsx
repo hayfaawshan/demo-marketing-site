@@ -1,6 +1,7 @@
 import type React from "react"
 import Head from "next/head"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 type LayoutProps = {
   children: React.ReactNode
@@ -8,6 +9,7 @@ type LayoutProps = {
 }
 
 export default function Layout({ children, title }: LayoutProps) {
+  const path = usePathname()
   return (
     <div className="min-h-screen flex flex-col">
       <Head>
@@ -23,22 +25,33 @@ export default function Layout({ children, title }: LayoutProps) {
           </Link>
           <ul className="flex space-x-4">
             <li>
-              <Link href="/" className="hover:underline">
+              <Link href="/" className={`${path === "/" && "font-bold"} text-white ${path !== "/" && "text-white/80"} hover:underline`}>
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:underline">
+              <Link
+                href="/about"
+                className={`${path === "/about" && "font-bold"} text-white ${path !== "/about" && "text-white/80"} hover:underline`}
+              >
                 About
               </Link>
             </li>
             <li>
-              <Link href="/products" className="hover:underline">
+              <Link
+                href="/products"
+                className={`${path === "/products" && "font-bold"} text-white ${path !== "/products" && "text-white/80"} hover:underline`}
+              >
                 Products
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:underline">
+              <Link
+                href="/contact"
+                className={`${path === "/contact" && "font-bold"} text-white ${
+                  path !== "/contact" && "text-white/80"
+                } hover:underline`}
+              >
                 Contact
               </Link>
             </li>
@@ -54,4 +67,3 @@ export default function Layout({ children, title }: LayoutProps) {
     </div>
   )
 }
-
