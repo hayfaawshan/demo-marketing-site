@@ -1,13 +1,13 @@
-import Layout from "@/components/layout"
+import Layout from "@/components/Layout"
 import { Highlight, Badge } from "@/components/ui/badge-footer"
+import londonImage from "../public/images/london.jpg"
 import Image from "next/image"
-import londonImage from "../public/london.jpg"
 
 export default function CareersPage() {
   return (
     <Layout title="Careers at TechCorp">
       <div className="max-w-2xl mx-auto text-center mb-8">
-        <h1 className="text-5xl font-bold mb-6">Careers at TechCorp</h1>
+        <h1 className="text-6xl font-bold mb-6">Careers at TechCorp</h1>
         <p className="leading-relaxed text-lg">
           Join our team and help us build innovative tech solutions.
         </p>
@@ -18,8 +18,6 @@ export default function CareersPage() {
           <li>Competitive salary</li>
           <li>Remote-friendly</li>
           <li>Flexible hours</li>
-          <li>Comprehensive health benefits</li>
-          <li>Generous PTO policy</li>
         </ul>
       </div>
       <div className="mb-8">
@@ -49,6 +47,7 @@ export default function CareersPage() {
           className="rounded-lg mb-4"
           height="250"
           width="400"
+          objectFit="cover"
         />
         <p>
           London is not just a city; it&apos;s a hub of opportunities, culture,
