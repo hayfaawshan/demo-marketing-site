@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout"
 import { Highlight, Badge } from "@/components/ui/badge-footer"
-import londonImage from "../public/images/london.jpg"
+import londonImage from "../public/london.jpg"
 import Image from "next/image"
 
 export default function CareersPage() {
