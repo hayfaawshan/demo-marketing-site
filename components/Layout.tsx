@@ -25,14 +25,14 @@ export default function Layout({ children, title }: LayoutProps) {
           </Link>
           <ul className="flex space-x-4">
             <li>
-              <Link href="/" className={`${path === "/" ? "text-blue-500 font-bold" : "text-gray-400"} hover:underline`}>
+              <Link href="/" className={`${path === "/" && "font-bold"} text-white ${path !== "/" && "text-white/80"} hover:underline`}>
                 Home
               </Link>
             </li>
             <li>
               <Link
                 href="/about"
-                className={`${path === "/about" ? "text-blue-500 font-bold" : "text-gray-400"} hover:underline`}
+                className={`${path === "/about" && "font-bold"} text-white ${path !== "/about" && "text-white/80"} hover:underline`}
               >
                 About
               </Link>
@@ -40,7 +40,7 @@ export default function Layout({ children, title }: LayoutProps) {
             <li>
               <Link
                 href="/products"
-                className={`${path === "/products" ? "text-blue-500 font-bold" : "text-gray-400"} hover:underline`}
+                className={`${path === "/products" && "font-bold"} text-white ${path !== "/products" && "text-white/80"} hover:underline`}
               >
                 Products
               </Link>
@@ -48,7 +48,9 @@ export default function Layout({ children, title }: LayoutProps) {
             <li>
               <Link
                 href="/contact"
-                className={`${path === "/contact" ? "text-blue-500 font-bold" : "text-gray-400"} hover:underline`}
+                className={`${path === "/contact" && "font-bold"} text-white ${
+                  path !== "/contact" && "text-white/80"
+                } hover:underline`}
               >
                 Contact
               </Link>
