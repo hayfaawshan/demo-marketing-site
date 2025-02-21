@@ -1,6 +1,7 @@
 import type React from "react"
 import Head from "next/head"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 type LayoutProps = {
   children: React.ReactNode
@@ -8,6 +9,7 @@ type LayoutProps = {
 }
 
 export default function Layout({ children, title }: LayoutProps) {
+  const path = usePathname()
   return (
     <div className="min-h-screen flex flex-col">
       <Head>
@@ -23,22 +25,31 @@ export default function Layout({ children, title }: LayoutProps) {
           </Link>
           <ul className="flex space-x-4">
             <li>
-              <Link href="/" className="hover:underline">
+              <Link href="/" className={`${path === "/" ? "text-blue-500 font-bold" : "text-gray-400"} hover:underline`}>
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:underline">
+              <Link
+                href="/about"
+                className={`${path === "/about" ? "text-blue-500 font-bold" : "text-gray-400"} hover:underline`}
+              >
                 About
               </Link>
             </li>
             <li>
-              <Link href="/products" className="hover:underline">
+              <Link
+                href="/products"
+                className={`${path === "/products" ? "text-blue-500 font-bold" : "text-gray-400"} hover:underline`}
+              >
                 Products
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:underline">
+              <Link
+                href="/contact"
+                className={`${path === "/contact" ? "text-blue-500 font-bold" : "text-gray-400"} hover:underline`}
+              >
                 Contact
               </Link>
             </li>
@@ -54,4 +65,3 @@ export default function Layout({ children, title }: LayoutProps) {
     </div>
   )
 }
-
