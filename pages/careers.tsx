@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import testimonials from "testimonials"
+import testimonials from "./testimonials.ts"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
