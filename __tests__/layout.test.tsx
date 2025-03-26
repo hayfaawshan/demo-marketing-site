@@ -19,5 +19,7 @@ describe("Layout Navigation", () => {
     expect(screen.getByRole("link", { name: /About/i })).toHaveAttribute("href", "/about");
     expect(screen.getByRole("link", { name: /Products/i })).toHaveAttribute("href", "/products");
     expect(screen.getByRole("link", { name: /Contact/i })).toHaveAttribute("href", "/contact");
+    expect(screen.getByText("Created by TechCorp")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /TechCorp/i })).toHaveAttribute("href", "https://techcorp.com");
   });
 });
