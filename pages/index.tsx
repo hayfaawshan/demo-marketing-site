@@ -1,8 +1,20 @@
 import Layout from "../components/Layout"
 import Image from "next/image"
 import Link from "next/link"
+import { useState, useEffect } from "react"
+import { fetchArticles } from "../lib/api"
 
 export default function Home() {
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    const getArticles = async () => {
+      const data = await fetchArticles();
+      setArticles(data);
+    };
+    getArticles();
+  }, []);
+
   return (
     <Layout title="Home">
       <section className="text-center mb-16">
@@ -117,7 +129,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section>
+      <section className="mb-16">
         <h2 className="text-3xl font-bold mb-6 text-center">What Our Clients Say</h2>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-white p-6 rounded-lg shadow-md">
@@ -136,7 +148,28 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section>
+        <h2 className="text-3xl font-bold mb-6 text-center">Latest Articles</h2>
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          {articles.length > 0 ? (
+            <ul className="space-y-4">
+              {articles.map((article) => (
+                <li key={article.id} className="border-b pb-4 last:border-b-0">
+                  <Link 
+                    href={`/articles/${article.id}`}
+                    className="text-lg text-blue-600 hover:text-blue-800 font-medium transition-colors"
+                  >
+                    {article.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-center text-gray-500">No articles available at the moment.</p>
+          )}
+        </div>
+      </section>
     </Layout>
   )
 }
-
