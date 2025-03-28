@@ -2,5 +2,53 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* Add any additional global styles here */
+/* Form Elements Styling */
+.form-input,
+.form-textarea {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-lg transition-colors duration-200;
+}
 
+.form-input:focus,
+.form-textarea:focus {
+  @apply outline-none ring-2 ring-blue-500 border-blue-500;
+}
+
+.form-label {
+  @apply block mb-2 font-medium text-gray-700;
+}
+
+.btn {
+  @apply px-6 py-3 rounded-lg font-medium transition-colors duration-200;
+}
+
+.btn-primary {
+  @apply bg-blue-600 text-white hover:bg-blue-700;
+}
+
+.btn-secondary {
+  @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
+}
+
+.btn-success {
+  @apply bg-green-600 text-white hover:bg-green-700;
+}
+
+.btn-danger {
+  @apply bg-red-600 text-white hover:bg-red-700;
+}
+
+/* Contact page specific styles */
+.contact-icon {
+  @apply h-5 w-5 mr-2 text-blue-600;
+}
+
+.contact-info-item {
+  @apply flex items-center mb-2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .btn {
+    @apply px-4 py-2 text-sm;
+  }
+}
