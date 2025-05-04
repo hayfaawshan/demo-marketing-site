@@ -1,57 +1,44 @@
-import type React from "react"
 import Head from "next/head"
 import Link from "next/link"
 
-type LayoutProps = {
+interface LayoutProps {
+  title?: string
   children: React.ReactNode
-  title: string
 }
 
-export default function Layout({ children, title }: LayoutProps) {
+export default function Layout({ children, title = "TechCorp" }: LayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col">
+    <>
       <Head>
-        <title>{title} | TechCorp</title>
-        <meta name="description" content="TechCorp - Innovative Solutions" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>{title}</title>
       </Head>
-
-      <header className="bg-blue-600 text-white p-4">
-        <nav className="container mx-auto flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold">
+      <div className="min-h-screen flex flex-col">
+        <header className="bg-gray-200 py-3 px-4 flex justify-between items-center">
+          <Link href="/" className="text-xl font-semibold text-blue-600 hover:underline">
             TechCorp
           </Link>
-          <ul className="flex space-x-4">
-            <li>
-              <Link href="/" className="hover:underline">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="hover:underline">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/products" className="hover:underline">
-                Products
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:underline">
-                Contact
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
+          <nav className="space-x-4">
+            <Link href="/about" className="text-gray-700 hover:text-black">
+              About
+            </Link>
+            <Link href="/products" className="text-gray-700 hover:text-black">
+              Products
+            </Link>
+            <Link href="/contact" className="text-gray-700 hover:text-black">
+              Contact
+            </Link>
+            <Link href="/careers" className="text-gray-700 hover:text-black">
+              Careers
+            </Link>
+          </nav>
+        </header>
 
-      <main className="flex-grow container mx-auto px-4 py-8">{children}</main>
+        <main className="flex-grow px-4 py-16">{children}</main>
 
-      <footer className="bg-gray-200 p-4">
-        <div className="container mx-auto text-center">© 2023 TechCorp. All rights reserved.</div>
-      </footer>
-    </div>
+        <footer className="bg-gray-200 py-4 px-4 text-center">
+          <p className="text-sm text-gray-600">&copy; 2023 TechCorp. All rights reserved.</p>
+        </footer>
+      </div>
+    </>
   )
 }
-
