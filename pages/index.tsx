@@ -1,10 +1,12 @@
 import Layout from "../components/Layout"
 import Image from "next/image"
 import Link from "next/link"
+import HeroSection from "../components/HeroSection"
 
 export default function Home() {
   return (
     <Layout title="Home">
+      <HeroSection />
       <section className="text-center mb-16">
         <h1 className="text-5xl font-bold mb-6">Welcome to TechCorp</h1>
         <p className="text-xl mb-8 max-w-2xl mx-auto">
