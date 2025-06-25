@@ -1,13 +1,30 @@
 import type React from "react"
 import Head from "next/head"
 import Link from "next/link"
+import { useRouter } from "next/router"
 
 type LayoutProps = {
   children: React.ReactNode
   title: string
 }
 
+const navItems: { href: string; label: string }[] = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/products", label: "Products" },
+  { href: "/contact", label: "Contact" },
+]
+
 export default function Layout({ children, title }: LayoutProps) {
+  const router = useRouter()
+  const pathname = router.pathname
+
+  // Helper: active if pathname matches or starts with href (but avoid "/" matching everything)
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/"
+    return pathname === href || pathname.startsWith(href + "/")
+  }
+
   return (
     <div className="min-h-screen flex flex-col">
       <Head>
@@ -22,26 +39,24 @@ export default function Layout({ children, title }: LayoutProps) {
             TechCorp
           </Link>
           <ul className="flex space-x-4">
-            <li>
-              <Link href="/" className="hover:underline">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="hover:underline">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/products" className="hover:underline">
-                Products
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:underline">
-                Contact
-              </Link>
-            </li>
+            {navItems.map(({ href, label }) => {
+              const active = isActive(href)
+              return (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className={
+                      active
+                        ? "font-bold underline text-white"
+                        : "text-gray-200 hover:underline hover:text-white transition-colors"
+                    }
+                    {...(active ? { "aria-current": "page" } : {})}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         </nav>
       </header>
