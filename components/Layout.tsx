@@ -1,13 +1,23 @@
 import type React from "react"
 import Head from "next/head"
 import Link from "next/link"
+import { useRouter } from "next/router"
 
 type LayoutProps = {
   children: React.ReactNode
   title: string
 }
 
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/products", label: "Products" },
+  { href: "/contact", label: "Contact" },
+];
+
 export default function Layout({ children, title }: LayoutProps) {
+  const router = useRouter();
+
   return (
     <div className="min-h-screen flex flex-col">
       <Head>
@@ -16,32 +26,39 @@ export default function Layout({ children, title }: LayoutProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className="bg-blue-600 text-white p-4">
+      <header className="bg-blue-600 p-4">
         <nav className="container mx-auto flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold">
+          <Link href="/" className="text-2xl font-bold text-white">
             TechCorp
           </Link>
           <ul className="flex space-x-4">
-            <li>
-              <Link href="/" className="hover:underline">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="hover:underline">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/products" className="hover:underline">
-                Products
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:underline">
-                Contact
-              </Link>
-            </li>
+            {navItems.map((item) => {
+              // Exact match for "/" only, otherwise startsWith for subpaths
+              const isActive =
+                item.href === "/"
+                  ? router.pathname === "/"
+                  : router.pathname.startsWith(item.href);
+
+              const baseClasses =
+                "hover:underline transition-colors";
+              const activeClasses = "font-bold text-white underline";
+              const inactiveClasses = "text-gray-300";
+
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={
+                      baseClasses +
+                      " " +
+                      (isActive ? activeClasses : inactiveClasses)
+                    }
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </header>
