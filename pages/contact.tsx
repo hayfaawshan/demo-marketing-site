@@ -77,9 +77,7 @@ export default function Contact() {
         <div>
           <h2 className="text-2xl font-semibold mb-4">Visit Us</h2>
           <p className="mb-2">TechCorp Headquarters</p>
-          <p className="mb-2">123 Innovation Drive</p>
-          <p className="mb-2">Silicon Valley, CA 94000</p>
-          <p className="mb-4">United States</p>
+          <p className="mb-2">123 Next London</p>
           <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
           <p className="mb-2">Phone: +1 (555) 123-4567</p>
           <p className="mb-4">Email: info@techcorp.com</p>
